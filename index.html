@@ -1,0 +1,1175 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liquid Soap Preparation Guide</title>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Tailwind Configuration -->
+    <script>
+        tailwind.config = {
+            darkMode: 'class',
+            theme: {
+                extend: {
+                    colors: {
+                        soap: {
+                            50: '#f0f9ff',
+                            100: '#e0f2fe',
+                            200: '#bae6fd',
+                            300: '#7dd3fc',
+                            400: '#38bdf8',
+                            500: '#0ea5e9',
+                            600: '#0284c7',
+                            700: '#0369a1',
+                            800: '#075985',
+                            900: '#0c4a6e',
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="css/style.css">
+    <!-- GSAP -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+</head>
+
+<body class="bg-gray-50 text-gray-800 dark:bg-gray-900 dark:text-gray-100 transition-colors duration-300">
+
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 glass dark:glass-dark transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center gap-2 cursor-pointer" onclick="window.scrollTo(0,0)">
+                    <i class="fa-solid fa-pump-soap text-soap-500 text-2xl"></i>
+                    <span class="font-bold text-xl tracking-tight text-soap-700 dark:text-soap-300">SoapLab</span>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="#home"
+                        class="text-gray-600 hover:text-soap-600 dark:text-gray-300 dark:hover:text-soap-400 font-medium transition">Home</a>
+                    <a href="#chemicals"
+                        class="text-gray-600 hover:text-soap-600 dark:text-gray-300 dark:hover:text-soap-400 font-medium transition">Chemicals</a>
+                    <a href="#procedure"
+                        class="text-gray-600 hover:text-soap-600 dark:text-gray-300 dark:hover:text-soap-400 font-medium transition">Procedure</a>
+                    <a href="#process"
+                        class="text-gray-600 hover:text-soap-600 dark:text-gray-300 dark:hover:text-soap-400 font-medium transition">Workflow</a>
+                    <a href="#media"
+                        class="text-gray-600 hover:text-soap-600 dark:text-gray-300 dark:hover:text-soap-400 font-medium transition">Media</a>
+
+                    <!-- Theme Toggle -->
+                    <button id="theme-toggle"
+                        class="p-2 rounded-full hover:bg-gray-200 dark:hover:bg-gray-700 transition">
+                        <i class="fa-solid fa-moon dark:hidden text-gray-600"></i>
+                        <i class="fa-solid fa-sun hidden dark:block text-yellow-400"></i>
+                    </button>
+                </div>
+
+                <!-- Mobile Menu Button -->
+                <div class="md:hidden flex items-center">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-gray-900 focus:outline-none">
+                        <i class="fa-solid fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu -->
+        <div id="mobile-menu"
+            class="hidden md:hidden bg-white dark:bg-gray-800 border-t border-gray-200 dark:border-gray-700 absolute w-full shadow-lg">
+            <div class="px-2 pt-2 pb-3 space-y-1 sm:px-3">
+                <a href="#home"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-soap-600 hover:bg-gray-50 dark:text-gray-200 dark:hover:bg-gray-700">Home</a>
+                <a href="#chemicals"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-soap-600 hover:bg-gray-50 dark:text-gray-200 dark:hover:bg-gray-700">Chemicals</a>
+                <a href="#procedure"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-soap-600 hover:bg-gray-50 dark:text-gray-200 dark:hover:bg-gray-700">Procedure</a>
+                <a href="#process"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-soap-600 hover:bg-gray-50 dark:text-gray-200 dark:hover:bg-gray-700">Workflow</a>
+                <a href="#media"
+                    class="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-soap-600 hover:bg-gray-50 dark:text-gray-200 dark:hover:bg-gray-700">Media</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home"
+        class="relative min-h-screen flex items-center justify-center pt-16 overflow-hidden bg-gradient-to-br from-soap-50 to-white dark:from-gray-900 dark:to-gray-800">
+        <!-- Background Bubbles created by JS -->
+
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10 grid md:grid-cols-2 gap-12 items-center">
+            <!-- Text Content -->
+            <div id="hero-text" class="text-center md:text-left">
+                <div
+                    class="inline-block px-4 py-1 rounded-full bg-soap-100 text-soap-600 text-sm font-semibold mb-4 border border-soap-200">
+                    <i class="fa-solid fa-flask mr-2"></i> Intermediate Level Experiment
+                </div>
+                <h1 class="text-4xl md:text-6xl font-bold text-gray-900 dark:text-white leading-tight mb-6">
+                    Master the Art of <span
+                        class="text-transparent bg-clip-text bg-gradient-to-r from-soap-500 to-blue-600">Liquid
+                        Soap</span> Making
+                </h1>
+                <p class="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-lg mx-auto md:mx-0">
+                    A comprehensive, interactive guide to preparing liquid soap. Learn the chemistry, procedure, and
+                    safety protocols with step-by-step visualizations.
+                </p>
+
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="#procedure"
+                        class="px-8 py-3 rounded-full bg-soap-600 text-white font-semibold shadow-lg hover:bg-soap-700 hover:shadow-xl transition transform hover:-translate-y-1">
+                        Start Experiment <i class="fa-solid fa-arrow-right ml-2"></i>
+                    </a>
+                    <a href="#chemicals"
+                        class="px-8 py-3 rounded-full bg-white text-gray-700 font-semibold shadow border border-gray-200 hover:bg-gray-50 hover:shadow-md transition dark:bg-gray-800 dark:text-gray-200 dark:border-gray-700">
+                        View Chemicals
+                    </a>
+                </div>
+
+                <!-- Stats -->
+                <div class="mt-12 grid grid-cols-3 gap-6 border-t border-gray-200 dark:border-gray-700 pt-8">
+                    <div>
+                        <p class="text-3xl font-bold text-soap-600 dark:text-soap-400 counter" data-target="9">0</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Steps</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold text-soap-600 dark:text-soap-400">2-3</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">Hours</p>
+                    </div>
+                    <div>
+                        <p class="text-3xl font-bold text-soap-600 dark:text-soap-400 counter" data-target="100">0</p>
+                        <p class="text-sm text-gray-500 dark:text-gray-400">% Success</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Hero Image/Visual -->
+            <div id="hero-image" class="relative hidden md:block">
+                <!-- Abstract visual representing soap making -->
+                <!-- Placeholder for main illustration -->
+                <div
+                    class="relative w-full h-96 bg-gradient-to-tr from-soap-100 to-white rounded-3xl shadow-2xl overflow-hidden glass border-0">
+                    <img src="assets/front.jpeg" alt="Liquid Soap"
+                        class="object-cover w-full h-full opacity-80 mix-blend-multiply hover:opacity-100 transition duration-700"
+                        onerror="this.src='https://images.unsplash.com/photo-1584305574647-0cc949a2bb9f?auto=format&fit=crop&q=80&w=1000'">
+
+                    <!-- Floating Badge -->
+                    <div class="absolute bottom-6 left-6 bg-white dark:bg-gray-800 p-4 rounded-xl shadow-lg flex items-center gap-3 animate-bounce"
+                        style="animation-duration: 3s;">
+                        <div class="p-2 bg-green-100 text-green-600 rounded-full">
+                            <i class="fa-solid fa-check"></i>
+                        </div>
+                        <div>
+                            <p class="text-xs text-gray-500 dark:text-gray-400">Result</p>
+                            <p class="font-bold text-sm dark:text-white">High Quality Soap</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Decorative Elements -->
+                <div
+                    class="absolute -top-10 -right-10 w-24 h-24 bg-yellow-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob">
+                </div>
+                <div
+                    class="absolute -bottom-10 -left-10 w-24 h-24 bg-pink-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-2000">
+                </div>
+                <div
+                    class="absolute top-1/2 left-1/2 w-24 h-24 bg-purple-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chemicals Section -->
+    <section id="chemicals" class="py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span
+                    class="text-soap-600 font-semibold tracking-wide uppercase text-sm dark:text-soap-400">Ingredients</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mt-2">Essential Chemicals</h2>
+                <div class="w-24 h-1 bg-soap-500 mx-auto mt-4 rounded-full"></div>
+                <p class="mt-4 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    Understanding the reactants is crucial for a successful saponification process. Here are the key
+                    components.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <!-- Water -->
+                <div
+                    class="chemical-card relative p-6 bg-soap-50 dark:bg-gray-700 rounded-2xl border border-soap-100 dark:border-gray-600 group overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                        <i class="fa-solid fa-droplet text-9xl text-soap-500"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="w-16 h-16 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-md mb-4 text-soap-500 text-2xl">
+                            <i class="fa-solid fa-glass-water"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Water (H₂O)</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">The solvent for the reaction. Must be
+                            distilled or deionized to prevent impurities.</p>
+                        <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-1">
+                            <li><i class="fa-solid fa-check text-green-500 mr-2"></i>Pure & Clean</li>
+                            <li><i class="fa-solid fa-check text-green-500 mr-2"></i>Solvent Base</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Castor Oil -->
+                <div
+                    class="chemical-card relative p-6 bg-yellow-50 dark:bg-gray-700 rounded-2xl border border-yellow-100 dark:border-gray-600 group overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                        <i class="fa-solid fa-bottle-droplet text-9xl text-yellow-500"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="w-16 h-16 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-md mb-4 text-yellow-500 text-2xl">
+                            <i class="fa-solid fa-oil-can"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Castor Oil</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">The primary fat source. Provides
+                            conditioning properties and lather stability.</p>
+                        <ul class="text-sm text-gray-500 dark:text-gray-400 space-y-1">
+                            <li><i class="fa-solid fa-check text-green-500 mr-2"></i>Fatty Acid Source</li>
+                            <li><i class="fa-solid fa-check text-green-500 mr-2"></i>Moisturizing</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- Sodium Hydroxide -->
+                <div
+                    class="chemical-card relative p-6 bg-red-50 dark:bg-gray-700 rounded-2xl border border-red-100 dark:border-gray-600 group overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                        <i class="fa-solid fa-triangle-exclamation text-9xl text-red-500"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="w-16 h-16 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-md mb-4 text-red-500 text-2xl">
+                            <i class="fa-solid fa-flask-vial"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Sodium Hydroxide (NaOH)</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">Strong alkali used for saponification.
+                            Handle with extreme care.</p>
+                        <div
+                            class="bg-red-100 dark:bg-red-900/30 text-red-600 dark:text-red-300 text-xs p-2 rounded mt-2 border border-red-200 dark:border-red-800">
+                            <i class="fa-solid fa-triangle-exclamation mr-1"></i> Corrosive! Wear gloves & goggles.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Copper Sulfate -->
+                <div
+                    class="chemical-card relative p-6 bg-blue-50 dark:bg-gray-700 rounded-2xl border border-blue-100 dark:border-gray-600 group overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                        <i class="fa-solid fa-gem text-9xl text-blue-500"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="w-16 h-16 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-md mb-4 text-blue-500 text-2xl">
+                            <i class="fa-regular fa-gem"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Copper Sulfate (CuSO₄)</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">Used in small amounts for specific
+                            properties or coloring (if applicable to this recipe).</p>
+                    </div>
+                </div>
+
+                <!-- Sodium Carbonate -->
+                <div
+                    class="chemical-card relative p-6 bg-gray-50 dark:bg-gray-700 rounded-2xl border border-gray-200 dark:border-gray-600 group overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                        <i class="fa-solid fa-snowflake text-9xl text-gray-400"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="w-16 h-16 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-md mb-4 text-gray-500 text-2xl">
+                            <i class="fa-solid fa-cubes-stacked"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Sodium Carbonate</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">Often used as a water softener or to
+                            adjust pH levels.</p>
+                    </div>
+                </div>
+
+                <!-- Glycerin -->
+                <div
+                    class="chemical-card relative p-6 bg-purple-50 dark:bg-gray-700 rounded-2xl border border-purple-100 dark:border-gray-600 group overflow-hidden">
+                    <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition">
+                        <i class="fa-solid fa-cube text-9xl text-purple-400"></i>
+                    </div>
+                    <div class="relative z-10">
+                        <div
+                            class="w-16 h-16 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-md mb-4 text-purple-500 text-2xl">
+                            <i class="fa-solid fa-pump-medical"></i>
+                        </div>
+                        <h3 class="text-xl font-bold text-gray-900 dark:text-white mb-2">Glycerin</h3>
+                        <p class="text-gray-600 dark:text-gray-300 text-sm mb-4">A humectant that attracts moisture to
+                            the skin.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chemical Reaction Section -->
+    <section id="reaction"
+        class="py-20 bg-gradient-to-br from-soap-50 to-white dark:from-gray-800 dark:to-gray-900 transition-colors duration-300">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span
+                    class="text-soap-600 font-semibold tracking-wide uppercase text-sm dark:text-soap-400">Chemistry</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mt-2">Saponification Reaction
+                </h2>
+                <div class="w-24 h-1 bg-soap-500 mx-auto mt-4 rounded-full"></div>
+                <p class="mt-4 text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+                    The chemical process that transforms fats and oils into soap through reaction with a strong base.
+                </p>
+            </div>
+
+            <!-- Main Reaction Equation -->
+            <div
+                class="bg-white dark:bg-gray-800 rounded-3xl shadow-2xl p-8 md:p-12 mb-12 border border-gray-100 dark:border-gray-700">
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">
+                    <i class="fa-solid fa-flask-vial mr-2 text-soap-500"></i>Main Equation
+                </h3>
+
+                <!-- Equation Display -->
+                <div
+                    class="bg-gradient-to-r from-soap-50 to-blue-50 dark:from-gray-700 dark:to-gray-600 rounded-2xl p-6 md:p-8 mb-6">
+                    <div class="flex flex-col md:flex-row items-center justify-center gap-4 text-center">
+                        <div class="flex-1">
+                            <div class="text-lg md:text-xl font-bold text-gray-800 dark:text-white mb-2">Fat/Oil
+                                (Triglyceride)</div>
+                            <div
+                                class="text-sm text-gray-600 dark:text-gray-300 font-mono bg-white dark:bg-gray-800 rounded-lg p-3">
+                                C₃H₅(OOCR)₃
+                            </div>
+                        </div>
+
+                        <div class="text-3xl font-bold text-soap-600 dark:text-soap-400">+</div>
+
+                        <div class="flex-1">
+                            <div class="text-lg md:text-xl font-bold text-gray-800 dark:text-white mb-2">Sodium
+                                Hydroxide</div>
+                            <div
+                                class="text-sm text-gray-600 dark:text-gray-300 font-mono bg-white dark:bg-gray-800 rounded-lg p-3">
+                                3 NaOH
+                            </div>
+                        </div>
+
+                        <div class="text-3xl font-bold text-green-600 dark:text-green-400">→</div>
+
+                        <div class="flex-1">
+                            <div class="text-lg md:text-xl font-bold text-gray-800 dark:text-white mb-2">Soap</div>
+                            <div
+                                class="text-sm text-gray-600 dark:text-gray-300 font-mono bg-white dark:bg-gray-800 rounded-lg p-3">
+                                3 RCOONa
+                            </div>
+                        </div>
+
+                        <div class="text-3xl font-bold text-soap-600 dark:text-soap-400">+</div>
+
+                        <div class="flex-1">
+                            <div class="text-lg md:text-xl font-bold text-gray-800 dark:text-white mb-2">Glycerin</div>
+                            <div
+                                class="text-sm text-gray-600 dark:text-gray-300 font-mono bg-white dark:bg-gray-800 rounded-lg p-3">
+                                C₃H₅(OH)₃
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="grid md:grid-cols-2 gap-6">
+                    <div class="bg-blue-50 dark:bg-gray-700 rounded-xl p-6">
+                        <h4 class="font-bold text-gray-900 dark:text-white mb-3 flex items-center">
+                            <i class="fa-solid fa-arrow-right text-blue-500 mr-2"></i>Reactants
+                        </h4>
+                        <ul class="space-y-2 text-gray-700 dark:text-gray-300 text-sm">
+                            <li><strong>Triglyceride:</strong> Long-chain fatty acids from oils</li>
+                            <li><strong>NaOH:</strong> Strong base that breaks ester bonds</li>
+                            <li><strong>Heat:</strong> Accelerates the reaction process</li>
+                        </ul>
+                    </div>
+
+                    <div class="bg-green-50 dark:bg-gray-700 rounded-xl p-6">
+                        <h4 class="font-bold text-gray-900 dark:text-white mb-3 flex items-center">
+                            <i class="fa-solid fa-check-circle text-green-500 mr-2"></i>Products
+                        </h4>
+                        <ul class="space-y-2 text-gray-700 dark:text-gray-300 text-sm">
+                            <li><strong>Soap (RCOONa):</strong> Sodium salt of fatty acids</li>
+                            <li><strong>Glycerin:</strong> Moisturizing byproduct</li>
+                            <li><strong>Water:</strong> Solvent and medium for reaction</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Reaction Steps -->
+            <div class="grid md:grid-cols-3 gap-6">
+                <div
+                    class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border border-gray-100 dark:border-gray-700">
+                    <div
+                        class="w-12 h-12 bg-soap-100 dark:bg-soap-900 rounded-full flex items-center justify-center mb-4">
+                        <span class="text-2xl font-bold text-soap-600 dark:text-soap-400">1</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Hydrolysis</h4>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">
+                        NaOH breaks the ester bonds in triglycerides, splitting them into glycerol and fatty acid
+                        chains.
+                    </p>
+                </div>
+
+                <div
+                    class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border border-gray-100 dark:border-gray-700">
+                    <div
+                        class="w-12 h-12 bg-soap-100 dark:bg-soap-900 rounded-full flex items-center justify-center mb-4">
+                        <span class="text-2xl font-bold text-soap-600 dark:text-soap-400">2</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Neutralization</h4>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">
+                        Fatty acids react with sodium ions (Na⁺) to form sodium salts—the soap molecules.
+                    </p>
+                </div>
+
+                <div
+                    class="bg-white dark:bg-gray-800 rounded-2xl shadow-lg p-6 border border-gray-100 dark:border-gray-700">
+                    <div
+                        class="w-12 h-12 bg-soap-100 dark:bg-soap-900 rounded-full flex items-center justify-center mb-4">
+                        <span class="text-2xl font-bold text-soap-600 dark:text-soap-400">3</span>
+                    </div>
+                    <h4 class="text-lg font-bold text-gray-900 dark:text-white mb-3">Completion</h4>
+                    <p class="text-gray-600 dark:text-gray-300 text-sm">
+                        Glycerin separates as a byproduct. The soap is then diluted with water to create liquid soap.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Procedure Section -->
+    <section id="procedure" class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span
+                    class="text-soap-600 font-semibold tracking-wide uppercase text-sm dark:text-soap-400">Step-by-Step
+                    Guide</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mt-2">Experimental Procedure
+                </h2>
+                <div class="w-24 h-1 bg-soap-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div
+                class="relative space-y-8 before:absolute before:inset-0 before:ml-5 before:-translate-x-px md:before:mx-auto md:before:translate-x-0 before:h-full before:w-0.5 before:bg-gradient-to-b before:from-transparent before:via-slate-300 before:to-transparent">
+
+                <!-- Step 1 -->
+                <div
+                    class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group is-active">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-soap-500 text-slate-500 group-[.is-active]:text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10">
+                        <i class="fa-solid fa-1"></i>
+                    </div>
+
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition cursor-pointer"
+                        onclick="toggleStep(this)">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">Preparation of Reagents</h3>
+                            <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+                        </div>
+                        <div class="step-content text-gray-600 dark:text-gray-300 text-sm">
+                            <p>Dissolve Sodium Hydroxide (NaOH) flakes in distilled water. Warning: This reaction is
+                                exothermic (generates heat).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-soap-500 text-slate-500 group-[.is-active]:text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10">
+                        <i class="fa-solid fa-2"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition cursor-pointer"
+                        onclick="toggleStep(this)">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">Mixing Phase</h3>
+                            <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+                        </div>
+                        <div class="step-content text-gray-600 dark:text-gray-300 text-sm">
+                            <p>Slowly add the lye solution to the oil while stirring continuously. Maintain a steady
+                                mixing speed.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-soap-500 text-slate-500 group-[.is-active]:text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10">
+                        <i class="fa-solid fa-3"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition cursor-pointer"
+                        onclick="toggleStep(this)">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">Addition of Catalysts</h3>
+                            <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+                        </div>
+                        <div class="step-content text-gray-600 dark:text-gray-300 text-sm">
+                            <p>Add catalysts if required to speed up the reaction or enhance properties. Ensure even
+                                distribution.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-soap-500 text-slate-500 group-[.is-active]:text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10">
+                        <i class="fa-solid fa-4"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition cursor-pointer"
+                        onclick="toggleStep(this)">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">Heating Process</h3>
+                            <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+                        </div>
+                        <div class="step-content text-gray-600 dark:text-gray-300 text-sm">
+                            <p>Heat the mixture to 60-80°C. Monitor temperature closely to avoid overheating or
+                                separation.</p>
+                            <div class="w-full bg-gray-200 rounded-full h-2.5 mt-2 dark:bg-gray-700">
+                                <div class="bg-red-500 h-2.5 rounded-full" style="width: 70%"></div>
+                            </div>
+                            <span class="text-xs text-red-500">Target Temp: 80°C</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-soap-500 text-slate-500 group-[.is-active]:text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10">
+                        <i class="fa-solid fa-5"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition cursor-pointer"
+                        onclick="toggleStep(this)">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">Observation</h3>
+                            <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+                        </div>
+                        <div class="step-content text-gray-600 dark:text-gray-300 text-sm">
+                            <p>Observe the mixture thickening (trace). It should resemble pudding consistency.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-soap-500 text-slate-500 group-[.is-active]:text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10">
+                        <i class="fa-solid fa-6 "></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition cursor-pointer"
+                        onclick="toggleStep(this)">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">Filtration</h3>
+                            <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+                        </div>
+                        <div class="step-content text-gray-600 dark:text-gray-300 text-sm">
+                            <p>Filter the mixture to remove any undissolved particles or impurities.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 7 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-soap-500 text-slate-500 group-[.is-active]:text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10">
+                        <i class="fa-solid fa-7"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition cursor-pointer"
+                        onclick="toggleStep(this)">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">Separation</h3>
+                            <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+                        </div>
+                        <div class="step-content text-gray-600 dark:text-gray-300 text-sm">
+                            <p>Allow the soap to settle and separate if necessary (e.g., glycerin separation for certain
+                                methods).</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 8 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-soap-500 text-slate-500 group-[.is-active]:text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10">
+                        <i class="fa-solid fa-8"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition cursor-pointer"
+                        onclick="toggleStep(this)">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">Final Processing</h3>
+                            <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+                        </div>
+                        <div class="step-content text-gray-600 dark:text-gray-300 text-sm">
+                            <p>Adjust pH to safe levels (9-10). Add fragrance or essential oils at this stage.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 9 -->
+                <div class="relative flex items-center justify-between md:justify-normal md:odd:flex-row-reverse group">
+                    <div
+                        class="flex items-center justify-center w-10 h-10 rounded-full border border-white bg-slate-300 group-[.is-active]:bg-soap-500 text-slate-500 group-[.is-active]:text-white shadow shrink-0 md:order-1 md:group-odd:-translate-x-1/2 md:group-even:translate-x-1/2 relative z-10">
+                        <i class="fa-solid fa-9"></i>
+                    </div>
+                    <div class="w-[calc(100%-4rem)] md:w-[calc(50%-2.5rem)] p-6 bg-white dark:bg-gray-800 rounded-xl shadow-md border border-gray-100 dark:border-gray-700 hover:shadow-lg transition cursor-pointer"
+                        onclick="toggleStep(this)">
+                        <div class="flex justify-between items-center mb-2">
+                            <h3 class="font-bold text-lg text-gray-900 dark:text-white">Quality Testing</h3>
+                            <i class="fa-solid fa-chevron-down text-gray-400 transition-transform duration-300"></i>
+                        </div>
+                        <div class="step-content text-gray-600 dark:text-gray-300 text-sm">
+                            <p>Test for foam stability, clarity, and usage safety.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process & Workflow Section -->
+    <section id="process" class="py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span
+                    class="text-soap-600 font-semibold tracking-wide uppercase text-sm dark:text-soap-400">Workflow</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mt-2">Process Visualization</h2>
+                <div class="w-24 h-1 bg-soap-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Process Flow Blocks (Single Line) -->
+            <div class="mb-16">
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-8 text-center">Process Overview</h3>
+                <div class="flex flex-col md:flex-row items-center justify-center gap-4 max-w-5xl mx-auto">
+                    <!-- Input -->
+                    <div
+                        class="flex-1 w-full p-6 bg-gradient-to-br from-blue-50 to-blue-100 dark:from-gray-700 dark:to-gray-600 rounded-xl shadow-lg border border-blue-200 dark:border-gray-600 hover:scale-105 transition transform duration-300">
+                        <div class="text-4xl text-blue-500 mb-3 text-center"><i class="fa-solid fa-flask"></i></div>
+                        <h4 class="font-bold text-gray-900 dark:text-white text-center">Raw Materials</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mt-2 text-center">Oil, Water, Alkali (NaOH)
+                        </p>
+                    </div>
+
+                    <!-- Arrow -->
+                    <div class="text-gray-400 dark:text-gray-500 rotate-90 md:rotate-0">
+                        <i class="fa-solid fa-arrow-right text-3xl animate-pulse"></i>
+                    </div>
+
+                    <!-- Process -->
+                    <div
+                        class="flex-1 w-full p-6 bg-gradient-to-br from-soap-50 to-soap-100 dark:from-gray-700 dark:to-gray-600 rounded-xl shadow-lg border-2 border-soap-500 hover:scale-105 transition transform duration-300">
+                        <div class="text-4xl text-soap-500 mb-3 text-center"><i class="fa-solid fa-fire-burner"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-900 dark:text-white text-center">Saponification</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mt-2 text-center">Mixing & Heating (80°C)</p>
+                    </div>
+
+                    <!-- Arrow -->
+                    <div class="text-gray-400 dark:text-gray-500 rotate-90 md:rotate-0">
+                        <i class="fa-solid fa-arrow-right text-3xl animate-pulse"></i>
+                    </div>
+
+                    <!-- Output -->
+                    <div
+                        class="flex-1 w-full p-6 bg-gradient-to-br from-green-50 to-green-100 dark:from-gray-700 dark:to-gray-600 rounded-xl shadow-lg border border-green-200 dark:border-gray-600 hover:scale-105 transition transform duration-300">
+                        <div class="text-4xl text-green-500 mb-3 text-center"><i class="fa-solid fa-pump-soap"></i>
+                        </div>
+                        <h4 class="font-bold text-gray-900 dark:text-white text-center">Liquid Soap</h4>
+                        <p class="text-sm text-gray-600 dark:text-gray-300 mt-2 text-center">Final Product (pH 9-10)</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Block Diagram -->
+            <div class="mb-16 max-w-4xl mx-auto">
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">Block Diagram</h3>
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-3xl p-6 shadow-xl">
+                    <img src="assets/Block diag.png" alt="Block Diagram" class="w-full h-auto rounded-xl shadow-lg">
+                </div>
+                <p class="mt-4 text-gray-600 dark:text-gray-300 text-center max-w-3xl mx-auto">
+                    The block diagram illustrates the systematic flow of materials through each stage of the soap-making
+                    process, from raw material input to final product output.
+                </p>
+            </div>
+
+            <!-- Process Flow Diagram -->
+            <div class="mb-8 max-w-4xl mx-auto">
+                <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center">Process Flow Diagram</h3>
+                <div class="bg-gray-50 dark:bg-gray-700 rounded-3xl p-6 shadow-xl">
+                    <img src="assets/Process flow.png" alt="Process Flow" class="w-full h-auto rounded-xl shadow-lg">
+                </div>
+                <p class="mt-4 text-gray-600 dark:text-gray-300 text-center max-w-3xl mx-auto">
+                    This detailed flowchart shows the sequential steps involved in liquid soap preparation, including
+                    decision points, quality checks, and process parameters at each stage.
+                </p>
+            </div>
+
+            <!-- Download Actions -->
+            <div class="text-center">
+                <a href="assets/Process flow.png" download
+                    class="inline-flex items-center px-6 py-3 border border-transparent text-base font-medium rounded-md text-soap-700 bg-soap-100 hover:bg-soap-200 dark:bg-gray-600 dark:text-gray-200 dark:hover:bg-gray-500 transition">
+                    <i class="fa-solid fa-download mr-2"></i> Download Process Flowchart
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Photos & Videos Section -->
+    <section id="media" class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-soap-600 font-semibold tracking-wide uppercase text-sm dark:text-soap-400">Media
+                    Gallery</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mt-2">Visualizing the Process
+                </h2>
+                <div class="w-24 h-1 bg-soap-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <!-- Video Container -->
+            <div class="mb-16 max-w-4xl mx-auto">
+                <div class="relative w-full aspect-video rounded-3xl overflow-hidden shadow-2xl">
+                    <iframe class="absolute top-0 left-0 w-full h-full" src="https://www.youtube.com/embed/TAk5Ig0tIbk"
+                        title="Soap Making Tutorial" frameborder="0"
+                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+                        allowfullscreen></iframe>
+                </div>
+            </div>
+
+            <!-- Image Gallery -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Item 1 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+                    <div class="group relative cursor-pointer bg-gray-100 dark:bg-gray-700"
+                        onclick="openLightbox('assets/mixing.jpeg', 'Mixing Process')">
+                        <img src="assets/mixing.jpeg" alt="Mixing"
+                            class="w-full h-64 object-contain transform transition duration-500 group-hover:scale-105">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition duration-300 flex items-center justify-center">
+                            <i
+                                class="fa-solid fa-magnifying-glass-plus text-white text-3xl opacity-0 group-hover:opacity-100 transition duration-300 transform translate-y-4 group-hover:translate-y-0"></i>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-900 dark:text-white mb-2">Mixing Process</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">Combining oils and lye solution to initiate
+                            saponification.</p>
+                    </div>
+                </div>
+
+                <!-- Item 2 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+                    <div class="group relative cursor-pointer bg-gray-100 dark:bg-gray-700"
+                        onclick="openLightbox('assets/filtration.jpeg', 'Filtration')">
+                        <img src="assets/filtration.jpeg" alt="Filtration"
+                            class="w-full h-64 object-contain transform transition duration-500 group-hover:scale-105">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition duration-300 flex items-center justify-center">
+                            <i
+                                class="fa-solid fa-magnifying-glass-plus text-white text-3xl opacity-0 group-hover:opacity-100 transition duration-300 transform translate-y-4 group-hover:translate-y-0"></i>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-900 dark:text-white mb-2">Filtration</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">Removing impurities and undissolved
+                            particles from the soap mixture.</p>
+                    </div>
+                </div>
+
+                <!-- Item 3 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+                    <div class="group relative cursor-pointer bg-gray-100 dark:bg-gray-700"
+                        onclick="openLightbox('assets/measuring.jpeg', 'Measuring')">
+                        <img src="assets/measuring.jpeg" alt="Measuring"
+                            class="w-full h-64 object-contain transform transition duration-500 group-hover:scale-105">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition duration-300 flex items-center justify-center">
+                            <i
+                                class="fa-solid fa-magnifying-glass-plus text-white text-3xl opacity-0 group-hover:opacity-100 transition duration-300 transform translate-y-4 group-hover:translate-y-0"></i>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-900 dark:text-white mb-2">Measuring Ingredients</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">Precise measurement of chemicals for
+                            accurate saponification ratio.</p>
+                    </div>
+                </div>
+
+                <!-- Item 4 -->
+                <div class="bg-white dark:bg-gray-800 rounded-xl shadow-lg overflow-hidden">
+                    <div class="group relative cursor-pointer bg-gray-100 dark:bg-gray-700"
+                        onclick="openLightbox('assets/Preparing .jpeg', 'Preparation')">
+                        <img src="assets/Preparing .jpeg" alt="Preparation"
+                            class="w-full h-64 object-contain transform transition duration-500 group-hover:scale-105">
+                        <div
+                            class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-40 transition duration-300 flex items-center justify-center">
+                            <i
+                                class="fa-solid fa-magnifying-glass-plus text-white text-3xl opacity-0 group-hover:opacity-100 transition duration-300 transform translate-y-4 group-hover:translate-y-0"></i>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="font-bold text-gray-900 dark:text-white mb-2">Preparation Setup</h3>
+                        <p class="text-sm text-gray-600 dark:text-gray-300">Setting up equipment and workspace for safe
+                            soap making.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Q&A Section -->
+    <section id="faq" class="py-20 bg-white dark:bg-gray-800 transition-colors duration-300">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-soap-600 font-semibold tracking-wide uppercase text-sm dark:text-soap-400">FAQ</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mt-2">Common Questions</h2>
+                <div class="w-24 h-1 bg-soap-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="space-y-4">
+                <!-- Question 1 -->
+                <div class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+                    <button
+                        class="w-full px-6 py-4 text-left bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 flex justify-between items-center transition"
+                        onclick="toggleFaq(this)">
+                        <span class="font-medium text-gray-900 dark:text-white">Why is NaOH safety important?</span>
+                        <i class="fa-solid fa-plus text-soap-500 transition-transform duration-300"></i>
+                    </button>
+                    <div
+                        class="faq-content max-h-0 overflow-hidden transition-all duration-300 bg-white dark:bg-gray-800">
+                        <div class="p-6 text-gray-600 dark:text-gray-300">
+                            Sodium Hydroxide (Lye) is extremely caustic and can cause severe chemical burns. Always use
+                            protective gear (gloves, goggles) and work in a ventilated area.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 2 -->
+                <div class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+                    <button
+                        class="w-full px-6 py-4 text-left bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 flex justify-between items-center transition"
+                        onclick="toggleFaq(this)">
+                        <span class="font-medium text-gray-900 dark:text-white">How long does the soap need to
+                            cure?</span>
+                        <i class="fa-solid fa-plus text-soap-500 transition-transform duration-300"></i>
+                    </button>
+                    <div
+                        class="faq-content max-h-0 overflow-hidden transition-all duration-300 bg-white dark:bg-gray-800">
+                        <div class="p-6 text-gray-600 dark:text-gray-300">
+                            Liquid soap typically requires a sequestering time of 1-2 weeks to ensure clarity and full
+                            saponification, unlike bar soap which cures for 4-6 weeks.
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Question 3 -->
+                <div class="border border-gray-200 dark:border-gray-700 rounded-lg overflow-hidden">
+                    <button
+                        class="w-full px-6 py-4 text-left bg-gray-50 dark:bg-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 flex justify-between items-center transition"
+                        onclick="toggleFaq(this)">
+                        <span class="font-medium text-gray-900 dark:text-white">Can I substitute oils?</span>
+                        <i class="fa-solid fa-plus text-soap-500 transition-transform duration-300"></i>
+                    </button>
+                    <div
+                        class="faq-content max-h-0 overflow-hidden transition-all duration-300 bg-white dark:bg-gray-800">
+                        <div class="p-6 text-gray-600 dark:text-gray-300">
+                            Yes, but every oil has a different SAP (saponification) value. You must recalculate the
+                            amount of lye needed if you change the oil type.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Lab Section -->
+    <section id="interactive" class="py-20 bg-gray-50 dark:bg-gray-900 transition-colors duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <span class="text-soap-600 font-semibold tracking-wide uppercase text-sm dark:text-soap-400">Virtual
+                    Lab</span>
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mt-2">Interactive Tools</h2>
+                <div class="w-24 h-1 bg-soap-500 mx-auto mt-4 rounded-full"></div>
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12">
+                <!-- Virtual Mixing Zone -->
+                <div
+                    class="md:col-span-2 bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700">
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6 text-center"><i
+                            class="fa-solid fa-flask mr-2 text-soap-500"></i>Virtual Mixing Lab</h3>
+                    <p class="text-center text-gray-600 dark:text-gray-400 mb-8">Drag ingredients into the beaker to
+                        create soap!</p>
+
+                    <div class="flex flex-col md:flex-row justify-center items-center gap-12">
+                        <!-- Ingredients -->
+                        <div class="flex gap-4">
+                            <div class="draggable w-20 h-20 bg-blue-100 rounded-full flex flex-col items-center justify-center cursor-grab shadow-md hover:scale-110 transition"
+                                draggable="true" data-type="water">
+                                <i class="fa-solid fa-droplet text-blue-500 text-2xl"></i>
+                                <span class="text-xs mt-1 font-semibold text-gray-700">Water</span>
+                            </div>
+                            <div class="draggable w-20 h-20 bg-yellow-100 rounded-full flex flex-col items-center justify-center cursor-grab shadow-md hover:scale-110 transition"
+                                draggable="true" data-type="oil">
+                                <i class="fa-solid fa-oil-can text-yellow-500 text-2xl"></i>
+                                <span class="text-xs mt-1 font-semibold text-gray-700">Oil</span>
+                            </div>
+                            <div class="draggable w-20 h-20 bg-gray-200 rounded-full flex flex-col items-center justify-center cursor-grab shadow-md hover:scale-110 transition"
+                                draggable="true" data-type="lye">
+                                <i class="fa-solid fa-cubes-stacked text-gray-500 text-2xl"></i>
+                                <span class="text-xs mt-1 font-semibold text-gray-700">Lye</span>
+                            </div>
+                        </div>
+
+                        <!-- Beaker/Mixing Area -->
+                        <div id="mixing-beaker"
+                            class="w-48 h-60 border-4 border-gray-300 dark:border-gray-600 border-t-0 rounded-b-3xl relative overflow-hidden bg-white/10 backdrop-blur-sm flex items-end justify-center">
+                            <div id="mixture"
+                                class="w-full bg-soap-200 transition-all duration-1000 h-0 flex items-center justify-center">
+                                <span id="reaction-text"
+                                    class="text-xs font-bold text-soap-800 hidden animate-pulse">Saponifying...</span>
+                            </div>
+                            <div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+                                <i
+                                    class="fa-solid fa-arrow-down text-gray-300 dark:text-gray-600 opacity-50 text-4xl animate-bounce"></i>
+                            </div>
+                        </div>
+
+                        <!-- Status -->
+                        <div class="w-40 text-center">
+                            <p class="font-bold text-gray-700 dark:text-gray-300 mb-2">Status:</p>
+                            <div id="lab-status"
+                                class="px-3 py-1 rounded-full bg-gray-200 dark:bg-gray-700 text-gray-600 dark:text-gray-400 text-sm">
+                                Empty</div>
+                            <button id="reset-lab" class="mt-4 text-sm text-red-500 hover:text-red-700 underline">Reset
+                                Lab</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Recipe Calculator -->
+                <div
+                    class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700">
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6"><i
+                            class="fa-solid fa-calculator mr-2 text-soap-500"></i>Lye Calculator</h3>
+                    <div class="space-y-4">
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Oil Weight
+                                (grams)</label>
+                            <input type="number" id="oil-weight" value="500"
+                                class="w-full px-4 py-2 rounded-lg bg-gray-50 dark:bg-gray-700 border border-gray-300 dark:border-gray-600 focus:ring-2 focus:ring-soap-500 focus:outline-none dark:text-white">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">Superfat
+                                (%)</label>
+                            <input type="range" id="superfat" min="0" max="10" value="5"
+                                class="w-full h-2 bg-gray-200 rounded-lg appearance-none cursor-pointer dark:bg-gray-700">
+                            <span id="superfat-val" class="text-sm text-gray-500 dark:text-gray-400">5%</span>
+                        </div>
+
+                        <div class="pt-4 border-t border-gray-200 dark:border-gray-700">
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-gray-600 dark:text-gray-300">Water Needed (38%):</span>
+                                <span id="water-needed" class="font-bold text-gray-900 dark:text-white">190g</span>
+                            </div>
+                            <div class="flex justify-between items-center mb-2">
+                                <span class="text-gray-600 dark:text-gray-300">Lye Needed (NaOH):</span>
+                                <span id="lye-needed" class="font-bold text-soap-600 dark:text-soap-400">128.5g</span>
+                            </div>
+                            <p class="text-xs text-red-500 mt-2"><i class="fa-solid fa-triangle-exclamation mr-1"></i>
+                                Estimate only. Always verify with a professional calculator.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Safety Quiz -->
+                <div
+                    class="bg-white dark:bg-gray-800 p-8 rounded-3xl shadow-lg border border-gray-100 dark:border-gray-700 relative overflow-hidden">
+                    <h3 class="text-2xl font-bold text-gray-900 dark:text-white mb-6"><i
+                            class="fa-solid fa-clipboard-check mr-2 text-green-500"></i>Safety Quiz</h3>
+
+                    <div id="quiz-container">
+                        <!-- Question Counter -->
+                        <div class="text-sm text-gray-500 dark:text-gray-400 mb-4">
+                            Question <span id="current-question">1</span> of <span id="total-questions">3</span>
+                        </div>
+
+                        <!-- Question 1 -->
+                        <div class="quiz-question active" data-question="1">
+                            <p class="text-lg text-gray-700 dark:text-gray-200 mb-6 font-medium">What is the most
+                                important safety gear when handling Lye?</p>
+                            <div class="space-y-3">
+                                <button
+                                    class="quiz-btn w-full text-left px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 hover:bg-soap-50 dark:hover:bg-gray-700 transition dark:text-gray-200"
+                                    onclick="checkAnswer(this, true)">Goggles & Gloves</button>
+                                <button
+                                    class="quiz-btn w-full text-left px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 hover:bg-soap-50 dark:hover:bg-gray-700 transition dark:text-gray-200"
+                                    onclick="checkAnswer(this, false)">Apron only</button>
+                                <button
+                                    class="quiz-btn w-full text-left px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 hover:bg-soap-50 dark:hover:bg-gray-700 transition dark:text-gray-200"
+                                    onclick="checkAnswer(this, false)">Open-toed shoes</button>
+                            </div>
+                            <div class="quiz-feedback mt-4 hidden font-bold"></div>
+                        </div>
+
+                        <!-- Question 2 -->
+                        <div class="quiz-question hidden" data-question="2">
+                            <p class="text-lg text-gray-700 dark:text-gray-200 mb-6 font-medium">What should you do if
+                                Lye spills on your skin?</p>
+                            <div class="space-y-3">
+                                <button
+                                    class="quiz-btn w-full text-left px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 hover:bg-soap-50 dark:hover:bg-gray-700 transition dark:text-gray-200"
+                                    onclick="checkAnswer(this, false)">Wipe it with a dry cloth</button>
+                                <button
+                                    class="quiz-btn w-full text-left px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 hover:bg-soap-50 dark:hover:bg-gray-700 transition dark:text-gray-200"
+                                    onclick="checkAnswer(this, true)">Rinse immediately with water and vinegar</button>
+                                <button
+                                    class="quiz-btn w-full text-left px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 hover:bg-soap-50 dark:hover:bg-gray-700 transition dark:text-gray-200"
+                                    onclick="checkAnswer(this, false)">Ignore it, it will heal</button>
+                            </div>
+                            <div class="quiz-feedback mt-4 hidden font-bold"></div>
+                        </div>
+
+                        <!-- Question 3 -->
+                        <div class="quiz-question hidden" data-question="3">
+                            <p class="text-lg text-gray-700 dark:text-gray-200 mb-6 font-medium">What is the ideal pH
+                                range for skin-safe liquid soap?</p>
+                            <div class="space-y-3">
+                                <button
+                                    class="quiz-btn w-full text-left px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 hover:bg-soap-50 dark:hover:bg-gray-700 transition dark:text-gray-200"
+                                    onclick="checkAnswer(this, false)">pH 5-6</button>
+                                <button
+                                    class="quiz-btn w-full text-left px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 hover:bg-soap-50 dark:hover:bg-gray-700 transition dark:text-gray-200"
+                                    onclick="checkAnswer(this, true)">pH 9-10</button>
+                                <button
+                                    class="quiz-btn w-full text-left px-4 py-3 rounded-lg border border-gray-200 dark:border-gray-600 hover:bg-soap-50 dark:hover:bg-gray-700 transition dark:text-gray-200"
+                                    onclick="checkAnswer(this, false)">pH 12-14</button>
+                            </div>
+                            <div class="quiz-feedback mt-4 hidden font-bold"></div>
+                        </div>
+
+                        <!-- Navigation Buttons -->
+                        <div class="flex justify-between mt-6">
+                            <button id="prev-btn" onclick="previousQuestion()"
+                                class="px-6 py-2 bg-gray-300 dark:bg-gray-600 text-gray-700 dark:text-gray-200 rounded-lg hover:bg-gray-400 dark:hover:bg-gray-500 transition disabled:opacity-50 disabled:cursor-not-allowed"
+                                disabled>
+                                <i class="fa-solid fa-chevron-left mr-2"></i>Previous
+                            </button>
+                            <button id="next-btn" onclick="nextQuestion()"
+                                class="px-6 py-2 bg-soap-600 text-white rounded-lg hover:bg-soap-700 transition">
+                                Next<i class="fa-solid fa-chevron-right ml-2"></i>
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+
+
+    <!-- Lightbox Modal -->
+    <div id="lightbox" class="fixed inset-0 z-[60] bg-black bg-opacity-95 hidden flex items-center justify-center p-4">
+        <button class="absolute top-4 right-4 text-white hover:text-gray-300 focus:outline-none"
+            onclick="closeLightbox()">
+            <i class="fa-solid fa-xmark text-4xl"></i>
+        </button>
+        <div class="max-w-4xl w-full">
+            <img id="lightbox-img" src="" alt="Lightbox"
+                class="w-full h-auto max-h-[85vh] object-contain rounded-lg shadow-2xl">
+            <p id="lightbox-caption" class="text-white text-center mt-4 text-lg font-medium"></p>
+        </div>
+    </div>
+
+    <!-- JS Handling -->
+    <script src="js/main.js"></script>
+    <script>
+        function toggleStep(element) {
+            const content = element.querySelector('.step-content');
+            const icon = element.querySelector('.fa-chevron-down');
+            const parent = element.parentElement;
+
+            // Toggle active class
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.style.transform = "rotate(0deg)";
+                parent.querySelector('.w-10').classList.remove('bg-soap-500', 'text-white');
+                parent.querySelector('.w-10').classList.add('bg-slate-300', 'text-slate-500');
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = "rotate(180deg)";
+                parent.querySelector('.w-10').classList.add('bg-soap-500', 'text-white');
+                parent.querySelector('.w-10').classList.remove('bg-slate-300', 'text-slate-500');
+            }
+        }
+    </script>
+    <!-- Additional Scripts -->
+    <script>
+        // Lightbox Logic
+        const lightbox = document.getElementById('lightbox');
+        const lightboxImg = document.getElementById('lightbox-img');
+        const lightboxCaption = document.getElementById('lightbox-caption');
+
+        function openLightbox(src, caption) {
+            lightboxImg.src = src;
+            lightboxCaption.innerText = caption;
+            lightbox.classList.remove('hidden');
+            document.body.style.overflow = 'hidden'; // Prevent scrolling
+        }
+
+        function closeLightbox() {
+            lightbox.classList.add('hidden');
+            document.body.style.overflow = 'auto'; // Restore scrolling
+        }
+
+        // Close on click outside
+        lightbox.addEventListener('click', (e) => {
+            if (e.target === lightbox) {
+                closeLightbox();
+            }
+        });
+
+        // FAQ Logic
+        function toggleFaq(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('.fa-plus');
+
+            if (content.style.maxHeight) {
+                content.style.maxHeight = null;
+                icon.style.transform = 'rotate(0deg)';
+                icon.classList.remove('fa-minus');
+                icon.classList.add('fa-plus');
+            } else {
+                content.style.maxHeight = content.scrollHeight + "px";
+                icon.style.transform = 'rotate(180deg)';
+                icon.classList.remove('fa-plus');
+                icon.classList.add('fa-minus');
+            }
+        }
+    </script>
+</body>
+
+</html>
